@@ -20,6 +20,7 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
             count += 1;
         }
     }
+    dbg!(count);
     count
 }
 
@@ -41,10 +42,8 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
     // `collection` is a slice of hash maps.
     // collection = [{ "variables1": Complete, "from_str": None, … },
     //               { "variables2": Complete, … }, … ]
-    collection
-        .iter()
-        .map(|map| count_iterator(map, value))
-        .sum()
+    dbg!(&collection);
+    collection.iter().map(|map| count_for(map, value)).sum();
 }
 
 // Equivalent to `count_collection_iterator` and `count_iterator`, iterating as
